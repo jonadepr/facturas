@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * MainController es el controlador de la aplicación Facturas,
+ * ProductoController es el controlador de la aplicación Facturas,
  * que es una aplicación tipo MVC (Modelo Vista Controlador)
  * 
  * 
  */
 
 @Controller
-class MainController {
+class ProductoController {
     
     @Autowired
     ProductoRepository pr; // Interface for generic CRUD operations 
