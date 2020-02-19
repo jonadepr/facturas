@@ -16,10 +16,10 @@ class Producto {
     private Long id;
 
     @NotNull
-    @Size(min = 100, max = 300)
+    @Size(min = 5, max = 300)
     private String descripcion;
 
-    @Size(min = 100, max = 300)
+    @Size(min = 5, max = 300)
     private String fabricante;
 
     private Float precio;
