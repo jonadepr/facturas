@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 class MainController {
     
     @Autowired
-    ProductoRepository pr;
+    ProductoRepository pr; // Interface for generic CRUD operations 
+                            // on a repository for a specific type.
 
     @GetMapping("/hello") // Escucho al GET en /hello
     @ResponseBody // Haré un body html para devolver la página completa
