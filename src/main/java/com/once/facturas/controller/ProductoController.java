@@ -1,5 +1,7 @@
 package com.once.facturas.controller;
 
+import java.util.NoSuchElementException;
+
 import javax.websocket.server.PathParam;
 
 import com.once.facturas.model.Producto;
@@ -37,7 +39,9 @@ class ProductoController {
         Producto pro;
         try{
             pro = pr.findById(id).get(); // otherwise throws NoSuchElementException
-        }catch(Exception NoSuchElementException){
+        }catch(NoSuchElementException e){
+            e = new NoSuchElementException("No se encuentra el producto con id "+id);
+            System.out.println(e.getMessage());
             return null;
         }
         return pro;
