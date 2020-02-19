@@ -2,8 +2,6 @@ package com.once.facturas.controller;
 
 import java.util.NoSuchElementException;
 
-import javax.websocket.server.PathParam;
-
 import com.once.facturas.model.Producto;
 import com.once.facturas.model.ProductoRepository;
 
