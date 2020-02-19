@@ -1,12 +1,13 @@
 package com.once.facturas.controller;
 
-import java.util.List;
+import javax.websocket.server.PathParam;
 
 import com.once.facturas.model.Producto;
 import com.once.facturas.model.ProductoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,18 +20,23 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping(value = "/productos") // Mapeo de este controlador
+@RequestMapping(value = "/productos/") // Mapeo de este controlador
 class ProductoController {
     
     @Autowired
-    ProductoRepository pr; // Interface for generic CRUD operations sobre la base de datos
+    ProductoRepository pr; // Interface for generic CRUD operations 
+                           // sobre la base de datos, crea la clase que hace la acción
 
     @GetMapping("/")
     public Iterable<Producto> getAllProductos() {
         return pr.findAll(); // Devolvemos objetos del tipo Producto
     }
 
-
+    @GetMapping("/{id}/")
+    public Producto getProducto(@PathVariable("id") Long id){
+        Producto pro = pr.findById(id).get();
+        return pro;
+    }
 
 
     @GetMapping("/hello") // Escucho al GET en /hello
