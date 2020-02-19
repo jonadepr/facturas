@@ -1,12 +1,15 @@
 package com.once.facturas.controller;
 
+import java.util.List;
+
+import com.once.facturas.model.Producto;
 import com.once.facturas.model.ProductoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * ProductoController es el controlador de la aplicación Facturas,
@@ -15,13 +18,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 
  */
 
-@Controller
+@RestController
 @RequestMapping(value = "/productos") // Mapeo de este controlador
 class ProductoController {
     
     @Autowired
-    ProductoRepository pr; // Interface for generic CRUD operations 
-                            // on a repository for a specific type.
+    ProductoRepository pr; // Interface for generic CRUD operations sobre la base de datos
+
+    @GetMapping("/")
+    public Iterable<Producto> getAllProductos() {
+        return pr.findAll(); // Devolvemos objetos del tipo Producto
+    }
+
+
+
 
     @GetMapping("/hello") // Escucho al GET en /hello
     @ResponseBody // Haré un body html para devolver la página completa
