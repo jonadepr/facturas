@@ -34,7 +34,12 @@ class ProductoController {
 
     @GetMapping("/{id}/")
     public Producto getProducto(@PathVariable("id") Long id){
-        Producto pro = pr.findById(id).get();
+        Producto pro;
+        try{
+            pro = pr.findById(id).get(); // otherwise throws NoSuchElementException
+        }catch(Exception NoSuchElementException){
+            return null;
+        }
         return pro;
     }
 
