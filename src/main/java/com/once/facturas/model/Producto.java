@@ -19,7 +19,7 @@ public class Producto {
     @Size(min = 5, max = 300)
     private String descripcion;
 
-    @Size(min = 5, max = 300)
+    @Size(max = 300)
     private String fabricante;
 
     private Float precio;
