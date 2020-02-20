@@ -19,10 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
  * 
  */
 
-@RestController
+@RestController // Devuelvo siempre algo convertido en json
 @RequestMapping(value = "/productos/") // Mapeo de este controlador
 class ProductoController {
-    
+    /**
+     * Escucha en las siguientes rutas
+     * GET /productos/
+     * GET /productos/{id}
+     * GET /productos/hello
+     * GET /productos/count
+     * 
+    */
     @Autowired
     ProductoRepository pr; // Interface for generic CRUD operations 
                            // sobre la base de datos, crea la clase que hace la acción
