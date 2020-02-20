@@ -34,12 +34,12 @@ class ProductoApiController {
      * GET /api/productos/hello
      * GET /api/productos/count
      * 
-     * GET /api/facturas/ - Nos devolverá una lista de facturas OK
-     * GET /api/facturas/1/ - Nos devolverá la factura número 1 (READ) OK 
-     * DELETE /api/facturas/1/ - Nos borrará la factura número 1 (DELETE) OK
-     * PUT /api/facturas/1/ - Nos modificará la factura número 1 (UPDATE) OK
-     * POST /api/facturas/ - Nos crea una nueva factura (CREATE) OK
-     * Y luego está el PATCH: PATCH /api/facturas/1/ nos permite modificar OK
+     * GET /api/productos/ - Nos devolverá una lista de facturas OK
+     * GET /api/productos/1/ - Nos devolverá la factura número 1 (READ) OK 
+     * DELETE /api/productos/1/ - Nos borrará la factura número 1 (DELETE) OK
+     * PUT /api/productos/1/ - Nos modificará la factura número 1 (UPDATE) OK
+     * POST /api/productos/ - Nos crea una nueva factura (CREATE) OK
+     * Y luego está el PATCH: PATCH /api/productos/1/ nos permite modificar OK
      * una factura pero de la forma "añade 2 euros a la factura".
      * 
      * 

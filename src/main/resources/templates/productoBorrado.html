@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista productos BORRADOS</title>
+</head>
+<body>
+    <h1>Producto BORRADO</h1>
+    <p th:text=${todos}></p>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Fabricante</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="producto : ${productos}">
+                    <td th:text="${producto.Id}"></td>
+                    <td th:text="${producto.Fabricante}"></td>
+                    <td th:text="${producto.Descripcion}"></td>
+                    <td th:text="${producto.Precio}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

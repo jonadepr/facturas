@@ -1,0 +1,6 @@
+<tr th:each="producto : ${productos}">
+    <td> <input type="text" name="id" value=productos.Id> </td>
+    <td th:text="${producto.Fabricante}"></td>
+    <td th:text="${producto.Descripcion}"></td>
+    <td th:text="${producto.Precio}"></td>
+</tr>

@@ -1,10 +1,65 @@
 package com.once.facturas.controller;
 
+import com.once.facturas.model.Producto;
+import com.once.facturas.model.ProductoRepository;
 
-
-
-
-
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping(value = "/productos/")
+public class ProductoHtmlController {
+
+    /** SOLO CON GET Y POST
+     * Escucha en las siguientes rutas
+     * 
+     * GET /productos/ - Nos devolverá una lista de productos OK
+     * GET /productos/1/ - Nos devolverá el producto con id = 1 (READ) OK
+     * DELETE /productos/1/ - Nos borrará el producto número 1 (DELETE) OK
+     * PUT /productos/1/ - Nos modificará el producto número 1 (UPDATE) 
+     * POST /productos/ - Nos crea un nuevo producto (CREATE)
+     * Y luego está el PATCH: PATCH /productos/1/ nos permite modificar
+     * una factura pero de la forma "añade 2 euros a la factura".
+     * 
+    */
+    @Autowired
+    ProductoRepository pr;
+
+    @GetMapping("/")
+    public ModelAndView listaProductos(){
+        ModelAndView modelAndView = new ModelAndView("listaProductos");
+        Iterable<Producto> todosLosProductos = pr.findAll();
+        modelAndView.addObject("productos", todosLosProductos);
+        return modelAndView;
+    }  
+    
+    @GetMapping("/{id}/")
+    public ModelAndView listaProducto(@PathVariable("id") Long id){
+        ModelAndView modelAndView = new ModelAndView("listaProductos");
+        Producto elProducto = pr.findById(id).get();
+        modelAndView.addObject("productos", elProducto);
+        return modelAndView;
+    }
+
+    @GetMapping("/{id}/delete/")
+    public ModelAndView eliminarProducto(@PathVariable("id") Long id){
+        ModelAndView modelAndView = new ModelAndView("productoBorrado");
+        Producto elProducto = pr.findById(id).get();
+        modelAndView.addObject("productos", elProducto);
+        pr.deleteById(id);
+        return modelAndView;
+    }
+
+    @GetMapping("/{id}/update/")
+    public ModelAndView updateProductoGet(@PathVariable("id") Long id){
+        ModelAndView modelAndView=new ModelAndView("updateProducto");
+        Producto elProducto = pr.findById(id).get();
+        modelAndView.addObject("productos", elProducto);
+        return modelAndView;
+    }
+
+}
