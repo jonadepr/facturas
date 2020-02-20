@@ -1,0 +1,25 @@
+<html>
+
+    <head>
+        <title>
+            Insertar en Base de Datos
+        </title>
+    </head>
+
+    <body>
+
+        <p th:text="${mensaje}"></p>
+
+        <h3>Insertar en Base de Datos</h3>
+
+
+        <form action="/productos/crearProducto" method="POST">
+            Fabricante: <input type="text" name="fabricante">
+            Descripcion: <input type="text" name="descripcion">
+            Precio: <input type="text" name="precio">
+            <input type="submit">
+        </form>
+
+    </body>
+    
+</html>
