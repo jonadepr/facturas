@@ -81,6 +81,12 @@ public class ProductoHtmlController {
         actual.setFabricante(fabricante);
         actual.setPrecio(precio);
         pr.save(actual);
+        modelAndView.addObject(
+            "todos", 
+            "Id: "+actual.getId()
+            +" Fabricante: "+ actual.getFabricante()
+            +" Descripcion: "+ actual.getDescripcion()
+            +" Precio: "+ actual.getPrecio()+" actualizado...");
         return modelAndView;
     }
 
@@ -106,9 +112,9 @@ public class ProductoHtmlController {
         modelAndView.addObject(
             "mensaje", 
             "Id: "+nuevo.getId()
-            +" Fabricante "+ nuevo.getFabricante()
-            +" Descripcion "+ nuevo.getDescripcion()
-            +" Precio "+ nuevo.getPrecio()+" introducido...");
+            +" Fabricante: "+ nuevo.getFabricante()
+            +" Descripcion: "+ nuevo.getDescripcion()
+            +" Precio: "+ nuevo.getPrecio()+" introducido...");
         return modelAndView;
     }
 
