@@ -75,7 +75,7 @@ public class ProductoHtmlController {
         @RequestParam("precio") Float precio
     ){
         ModelAndView modelAndView=new ModelAndView("updateProducto");
-        System.out.println(idActualizar);
+        //System.out.println(idActualizar);
         Producto actual = pr.findById(idActualizar).get();
         actual.setDescripcion(descripcion);
         actual.setFabricante(fabricante);
