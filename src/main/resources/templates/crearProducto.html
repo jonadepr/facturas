@@ -1,8 +1,9 @@
 <html>
 
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
         <title>
-            Insertar en Base de Datos
+            Insertar Producto en Base de Datos
         </title>
     </head>
 
@@ -10,15 +11,22 @@
 
         <p th:text="${mensaje}"></p>
 
-        <h3>Insertar en Base de Datos</h3>
+        <h3>Insertar Producto en Base de Datos</h3>
 
 
-        <form action="/productos/crearProducto" method="POST">
-            Fabricante: <input type="text" name="fabricante">
-            Descripcion: <input type="text" name="descripcion">
-            Precio: <input type="text" name="precio">
-            <input type="submit">
+        <form class ="ui form" action="/productos/crearProducto" method="POST">
+            <div class="field">
+            Fabricante: <input type="text" name="fabricante" placeholder="Fabricante">
+            </div>
+            <div class="field">
+            Descripcion: <input type="text" name="descripcion" placeholder="Descripcion">
+            </div>
+            <div class="field">
+            Precio: <input type="text" name="precio" placeholder="Precio">
+            </div>
+            <button class="ui button" type="submit">Enviar</button>
         </form>
+        <a href="/productos/" class="ui button">Lista</a>
 
     </body>
     

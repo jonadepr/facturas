@@ -103,7 +103,12 @@ public class ProductoHtmlController {
         nuevo.setFabricante(fabricante);
         nuevo.setPrecio(precio);
         nuevo = pr.save(nuevo);
-        modelAndView.addObject("mensaje", nuevo);
+        modelAndView.addObject(
+            "mensaje", 
+            "Id: "+nuevo.getId()
+            +" Fabricante "+ nuevo.getFabricante()
+            +" Descripcion "+ nuevo.getDescripcion()
+            +" Precio "+ nuevo.getPrecio()+" introducido...");
         return modelAndView;
     }
 

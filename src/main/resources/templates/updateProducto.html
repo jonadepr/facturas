@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update productos</title>
@@ -9,7 +11,7 @@
     <h1>Update productos</h1>
     <p th:text=${todos}></p>
     <div>
-        <table >
+        <table class="ui celled table">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -27,24 +29,19 @@
                 </tr>
             </tbody>
         </table>
-        <form action="/productos/update" method="POST">
-            <div>
-            <ul style="list-style: none;">
-                <li>
-                    <label>Fabricante: <input type="text" name="fabricante"/></label> 
-                </li>
-                <li>
-                    <label>Descripcion: <input type="text" name="descripcion"></label>
-                </li>
-                <li>
-                    <label>Precio: <input type="text" name="precio"></label>
-                </li>
-    
-              
-            </ul>
-            <input type="submit">
+        <form class ="ui form" action="/productos/update" method="POST">
+            <div class="field">
+            Fabricante: <input type="text" name="fabricante" placeholder="Fabricante">
             </div>
+            <div class="field">
+            Descripcion: <input type="text" name="descripcion" placeholder="Descripcion">
+            </div>
+            <div class="field">
+            Precio: <input type="text" name="precio" placeholder="Precio">
+            </div>
+            <button class="ui button" type="submit">Enviar</button>
         </form>
+        <a href="/productos/" class="ui button">Lista</a>
     </div>
     
 </body>
