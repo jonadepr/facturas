@@ -31,13 +31,13 @@
         </table>
         <form class ="ui form" action="/productos/update" method="POST">
             <div class="field">
-            Fabricante: <input type="text" name="fabricante" placeholder="Fabricante">
+            Fabricante: <input type="text" name="fabricante" th:value="${producto?.fabricante}">
             </div>
             <div class="field">
-            Descripcion: <input type="text" name="descripcion" placeholder="Descripcion">
+            Descripcion: <input type="text" name="descripcion" th:value="${producto?.descripcion}">
             </div>
             <div class="field">
-            Precio: <input type="text" name="precio" placeholder="Precio">
+            Precio: <input type="text" name="precio" th:value="${producto?.precio}">
             </div>
             <button class="ui button" type="submit">Enviar</button>
         </form>
