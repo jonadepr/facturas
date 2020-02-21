@@ -62,7 +62,7 @@ public class ProductoHtmlController {
     public ModelAndView updateProductoGet(@PathVariable("id") Long id){
         ModelAndView modelAndView=new ModelAndView("updateProducto");
         Producto elProducto = pr.findById(id).get();
-        modelAndView.addObject("productos", elProducto);
+        modelAndView.addObject("producto", elProducto);
         idActualizar = id;
         return modelAndView;
     }
@@ -80,7 +80,7 @@ public class ProductoHtmlController {
         actual.setDescripcion(descripcion);
         actual.setFabricante(fabricante);
         actual.setPrecio(precio);
-        pr.save(actual);
+        actual = pr.save(actual);
         modelAndView.addObject(
             "todos", 
             "Id: "+actual.getId()
