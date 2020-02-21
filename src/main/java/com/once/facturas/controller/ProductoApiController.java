@@ -6,6 +6,9 @@ import com.once.facturas.model.Producto;
 import com.once.facturas.model.ProductoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -78,18 +81,16 @@ class ProductoApiController {
 
     // DELETE /api/productos/{id}/
     @DeleteMapping("/{id}/")
-    public Producto eliminarProducto(@PathVariable("id") Long id){
+    public ResponseEntity eliminarProducto(@PathVariable("id") Long id){
         try{
             pr.deleteById(id);
-        }catch(IllegalArgumentException e){
-            e = new IllegalArgumentException("No se ha encontrado el producto a eliminar");
-            System.out.println(e.getMessage());
-            return null;
+        }catch(EmptyResultDataAccessException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    // PUT /api/facturas/1/ - Nos modificará la factura número 1 (UPDATE) 
+    // PUT /api/productos/1/ - Nos modificará la factura número 1 (UPDATE) 
     @PutMapping("/{id}/")
     public Producto modificarProducto(
         @PathVariable("id") Long id, 
@@ -102,7 +103,7 @@ class ProductoApiController {
     }
 
     /**
-     * Y luego está el PATCH: PATCH /api/facturas/1/ nos permite modificar 
+     * Y luego está el PATCH: PATCH /api/productos/1/ nos permite modificar 
      * una factura pero de la forma "añade 2 euros a la factura".
      * 
      */
