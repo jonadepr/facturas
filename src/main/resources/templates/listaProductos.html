@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista productos</title>
 </head>
 <body>
-    <h1>Lista de productos</h1>
+    <h1 class="ui header">Lista de productos</h1>
     <p th:text=${todos}></p>
     <div>
-        <table >
+        <table class="ui celled table">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -20,10 +21,10 @@
             </thead>
             <tbody>
                 <tr th:each="producto : ${productos}">
-                    <td th:text="${producto.Id}"></td>
-                    <td th:text="${producto.Fabricante}"></td>
-                    <td th:text="${producto.Descripcion}"></td>
-                    <td th:text="${producto.Precio}"></td>
+                    <td data-label="Id" th:text="${producto.Id}"></td>
+                    <td data-label="Fabricante" th:text="${producto.Fabricante}"></td>
+                    <td data-label="Descripcion" th:text="${producto.Descripcion}"></td>
+                    <td data-label="Precio" th:text="${producto.Precio}"></td>
                 </tr>
             </tbody>
         </table>
