@@ -17,7 +17,7 @@
                     <th>Fabricante</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
-                    <th>Edit/Del</th>
+                    <th>Edit/Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,8 +27,8 @@
                     <td data-label="Descripcion" th:text="${producto.Descripcion}"></td>
                     <td data-label="Precio" th:text="${producto.Precio}"></td>
                     <td>
-                        <a href="updateProducto.html" th:href="@{/productos/{orderId}/update/(orderId=${producto.id})}">Edit/</a>
-                        <a href="productoBorrado.html" th:href="@{/productos/{orderId}/delete/(orderId=${producto.id})}">Del</a>
+                        <a href="updateProducto.html" class="mini ui button" th:href="@{/productos/{orderId}/update/(orderId=${producto.id})}">Edit</a>
+                        <a href="productoBorrado.html" class="mini ui button" th:href="@{/productos/{orderId}/delete/(orderId=${producto.id})}">Del</a>
 
                     </td>
                 </tr>

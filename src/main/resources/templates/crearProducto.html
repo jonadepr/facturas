@@ -9,9 +9,9 @@
 
     <body>
 
-        <p th:text="${mensaje}"></p>
+        <p class="meta" th:text="${mensaje}"></p>
 
-        <h3>Insertar Producto en Base de Datos</h3>
+        <h3 class="header">Insertar Producto en Base de Datos</h3>
 
 
         <form class ="ui form" action="/productos/crearProducto" method="POST">
@@ -24,9 +24,9 @@
             <div class="field">
             Precio: <input type="text" name="precio" placeholder="Precio">
             </div>
-            <button class="ui button" type="submit">Enviar</button>
+            <button class="ui button" type="submit">Enviar</button> <a href="/productos/" class="ui button">Lista</a>
         </form>
-        <a href="/productos/" class="ui button">Lista</a>
+
 
     </body>
     
