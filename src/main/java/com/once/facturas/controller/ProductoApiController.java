@@ -76,7 +76,7 @@ class ProductoApiController {
         return p;
     }
 
-    // DELETE /api/facturas/{id}/
+    // DELETE /api/productos/{id}/
     @DeleteMapping("/{id}/")
     public Producto eliminarProducto(@PathVariable("id") Long id){
         try{
