@@ -112,8 +112,7 @@ class ProductoApiController {
         @RequestBody Producto producto){
             Producto aModif = pr.findById(id).get();
             aModif.setPrecio(aModif.getPrecio() + producto.getPrecio());
-            pr.save(aModif);
-            return null;
+            return pr.save(aModif);
     }
 
 
